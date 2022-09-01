@@ -255,6 +255,9 @@ public class ClassInfoTransformServiceImpl implements ClassInfoTransformService 
 
         List<FieldInfo> fieldInfoList = new ArrayList<>();
         Map<String, YapiPropertiesDTO> propertiesMap = propertiesDTO.getProperties();
+        if(CollectionUtils.isEmpty(propertiesMap)){
+            return Collections.emptyList();
+        }
         for (Map.Entry<String, YapiPropertiesDTO> entry : propertiesMap.entrySet()) {
             String fieldName = entry.getKey();
             YapiPropertiesDTO dto = entry.getValue();
